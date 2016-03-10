@@ -29,6 +29,13 @@ As I figure things out, I hope to share my progress via Markdown documents and S
 (3) What is the distance and direction between cluster means?
 (4) How are individual points represented by the clusters (cluster membership)?
 
+**Research Design:**
+
+(1) If I hypothesize two (or more) clusters in my data, what is the minimum sample size I would need to test for statistically significant difference?
+(2) If I am running many comparisons, what, if any, correction would I need to make to my significance tests?
+(3) How robust are statistical methods to unequal group membership?
+(4) How robust are statistical methods to unequal variance?
+
 ###Sample data:
 
 The datasets contain real data from real projects.  All identifying information has been removed (all column names changed, all factor variables' levels given new names), but the structure has been maintained.  The number of observers is the same.  Patterns of missing data are the same.  Numeric values are the same and, although the factor variable level names have been changed, the responses are still assigned to the same level number.  I have retained the survey start and end time, three triads, three dyads, three factor variables, and one fitness landscape.  I have added a unique id for each row (observation).
