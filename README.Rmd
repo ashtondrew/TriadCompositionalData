@@ -1,0 +1,72 @@
+---
+title: "About This Project"
+author: "C. A. Drew, [KDV Decision Analysis LLC](http://www.cashtondrew.com)"
+date: "March 9, 2016"
+output: html_document
+---
+
+The material in this github repository are part of my work to understand and develop approaches to visualize and analyse datasets that contain triad data.  The triads can be beautifully visualized with ggtern package - but then I see patterns that I want to quantitatively describe and test.  The data describe individuals beliefs, motivations, and values in relation to an event.  In addition to the triad data, other data include dyads and factor variables.
+
+As I figure things out, I hope to share my progress via Markdown documents and Shiny apps.  Please feel free to offer suggestions, corrections, and improvements for my code or my stats! 
+
+###Questions that I would like to answer:
+
+**Compare Two Groups:**
+
+(1) Is there a difference between group means on a single triad?
+(2) Is there a difference in the disperson of group responses on a single triad?
+(3) What is the amount and direction of difference between two groups?
+
+**Individual Observations:**
+
+(1) Are there any outliers?
+(2) How far and in what direction does a point fall from the mean (or other specified value)?
+
+**Clusters:**
+
+(1) Are the data on the triad clustered?
+(2) How many clusters are present?
+(3) What is the distance and direction between cluster means?
+(4) How are individual points represented by the clusters (cluster membership)?
+
+###Sample data:
+
+The datasets contain real data from real projects.  All identifying information has been removed (all column names changed, all factor variables' levels given new names), but the structure has been maintained.  The number of observers is the same.  Patterns of missing data are the same.  Numeric values are the same and, although the factor variable level names have been changed, the responses are still assigned to the same level number.  I have retained the survey start and end time, three triads, three dyads, three factor variables, and one fitness landscape.  I have added a unique id for each row (observation).
+
+**triad_data1.csv**
+
+This project comes from a small pilot project.  Important objectives of the original study were to formulate hypotheses about patterns between factor groups within triads and between triads.  If patterns were observed in these data, then an important question would be how many responses would need to be collected in a follow-up survey to establish if differences are statistically significant.  From this project, I retained information for survey start and end time, three triads, three dyads, three factor variables, and one fitness landscape.  I added a unique id for each row (observation).
+
+```{r triad_data1}
+demodata1 <- read.csv("triad_data1.csv")
+str(demodata1)
+summary(demodata1)
+```
+
+**triad_data2.csv**
+
+This project was a very large project.  The volumn of data present challenges for visualizing patterns in the data.  The original goals of this project were purely descriptive - to identify and describe clusters, if present, and to identify and describe outliers, if present.  From this project, I retained information for time period (as factor), three triads, and three factor variables that related to demographic information.  I added a unique id for each row (observation).
+
+```{r triad_data2}
+demodata2 <- read.csv("triad_data2.csv")
+str(demodata2)
+summary(demodata2)
+```
+
+###A few comments on my motivation and intended applications
+
+The data that I am playing with come from distributed-enthnography survey instruments developed by [Cognitive Edge](http://cognitive-edge.com/).  Cognitive Edge has a software package, [SenseMaker](http://cognitive-edge.com/sensemaker/), that provides very effective visualizations and analysis of these data.  This package currently stops short of offereing these sorts of statistical analyses.  This has been a conscious choice because, within the primary target applications (organizational development, cultural and social change, etc) the visual patterns that communities perceive withn their own data (and the emotions and actions this motivates) are ultimately far more important than any statistical metrics.  My stats might tell you that perceived patterns are not really significant under some statistical method, but as someone once said: *"A man convinced against his will, Is of the same opinion still."*  And for most SenseMaker applications, it is that opinion that matters most.
+
+My exercises, therefore, target the minority of cases where (1) statistics might be necessary (e.g. use of SenseMaker in a research project to measure differences before/after an event or treatment), (2) there are so many data points that simple visualization becomes challenging, and (3) so many variables (triads, diads,and factors) have been collected that multivariate patterns are impossible to visualize.
+
+Finally, I am simply intrigued by the broader analysis challenges and questions posed by this kind of three-part compositional data.  My goal is to better understand the compositional data packages in R by answering to the questions listed above in the format of short how-to guides showing the data, analysis, and interpretation of results.
+
+###Useful references
+
+Aitchison J. 1982. [The Statistical Analysis of Compositional Data](http://links.jstor.org/sici?sici=0035-9246%281982%2944%3A2%3C139%3ATSAOCD%3E2.0.CO%3B2-9) Journal of the Royal Statistical Society. Series B (Methodological) 44:139-177
+
+Pawlowsky-Glahn V, Buccianti A. 2011. [Compositional Data Analysis: Theory and Applications](http://www.amazon.com/Compositional-Data-Analysis-Theory-Applications/dp/0470711353/ref=sr_1_1?ie=UTF8&qid=1457577777&sr=8-1&keywords=compositional+data). Wiley, New York, NY
+
+van den Boogaart KG, Tolosana-Delgado R. 2013. [Compositional Data Analysis in R](http://www.springer.com/us/book/9783642368080), Springer, New York, NY
+
+
